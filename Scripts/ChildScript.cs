@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChildScript : MonoBehaviour
 {
-    private bool isRight = true;
+    private bool isRight = true; //r
     private GameObject parent;
     private Rigidbody2D rb;
     public GameObject curPointHit;
