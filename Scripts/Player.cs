@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public float rotationSpeed;
     public List<GameObject> pointObjs = new List<GameObject>();
+    // public GameObject[] pointObjs;
     private GameObject child;
 
 
@@ -17,10 +18,21 @@ public class Player : MonoBehaviour
         pointLocations.Add(new Vector3(0f, 2f, 0f));
         pointLocations.Add(new Vector3(0f, -2f, 0f));
         */
-        pointObjs.Add(GameObject.Find("PointLeft"));
-        pointObjs.Add(GameObject.Find("PointRight"));
-        pointObjs.Add(GameObject.Find("PointUp"));
-        pointObjs.Add(GameObject.Find("PointDown"));
+
+        GameObject[] temp = GameObject.FindGameObjectsWithTag("Point");
+
+        for (int i = 0; i < temp.Length; i++)
+        {
+            pointObjs.Add(temp[i]);
+        }
+        
+        // pointObjs = temp.ToList();
+        print(pointObjs);
+
+        // pointObjs.Add(GameObject.Find("PointLeft"));
+        // pointObjs.Add(GameObject.Find("PointRight"));
+        // pointObjs.Add(GameObject.Find("PointUp"));
+        // pointObjs.Add(GameObject.Find("PointDown"));
 
         // Then Select one random gameobject to be displayed and set it as active
         int randomStart = Random.Range(0, pointObjs.Count);
