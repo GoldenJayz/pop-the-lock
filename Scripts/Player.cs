@@ -32,6 +32,17 @@ public class Player : MonoBehaviour
         // print(randNum);
         // Make point send it in the opposite direction the lock is traveling (maybe try using negative ?)
         child = GameObject.FindWithTag("Player");
+        
+        GameObject chosenPoint = pointObjs[randomStart];
+
+        for (int i = 0; i < pointObjs.Count; i++) 
+        {
+            if (pointObjs[i] != chosenPoint) 
+            {
+                Destroy(pointObjs[i]);
+            }
+        }
+
 
     }
 
