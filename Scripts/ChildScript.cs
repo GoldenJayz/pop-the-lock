@@ -9,11 +9,13 @@ public class ChildScript : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject curPointHit;
     public bool playerHit = false;
+    private GameObject pointObjs;
 
     void Start()
     {
         parent = GameObject.Find("Dial");
         rb = GetComponent<Rigidbody2D>();
+        pointObjs = parent.GetComponent<Player>().pointObjs; // Compress the parent script into a variable later
     }
 
     void Update()
@@ -35,6 +37,12 @@ public class ChildScript : MonoBehaviour
         curPointHit.GetComponent<Point>().isHit = false;
     }
 
+    void PickRandomPoint(GameObject lastPoint) 
+    {
+        // Exclude the last point
+        int randomStart = Random.Range(0, pointObjs.Count);
+        
+    }
 
     void Movement()
     {
@@ -49,7 +57,9 @@ public class ChildScript : MonoBehaviour
                 playerHit = true;
                 pointCollisions += 1; // collisions should only be incremented if the player hits space and they are colliding with each other
                 isRight = pointCollisions == 1 ? !isRight : isRight;
-                Destroy(curPointHit);
+                curPointHit.SetActive(false);
+                // Destroy(curPointHit);
+                PickRandomPoint(curPointHit); // then pick a random point to spawn in.
                 curPointHit = null;
             }
         }
