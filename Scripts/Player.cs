@@ -17,6 +17,10 @@ public class Player : MonoBehaviour
         pointLocations.Add(new Vector3(0f, 2f, 0f));
         pointLocations.Add(new Vector3(0f, -2f, 0f));
         */
+
+        GameObject[] tempObjs = GameObject.FindGameObjectsWithTag("Point");
+        print(tempObjs);
+
         pointObjs.Add(GameObject.Find("PointLeft"));
         pointObjs.Add(GameObject.Find("PointRight"));
         pointObjs.Add(GameObject.Find("PointUp"));
