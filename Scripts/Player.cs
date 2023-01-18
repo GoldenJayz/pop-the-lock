@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         {
             pointObjs.Add(temp[i]);
         }
-        
+
         // pointObjs = temp.ToList();
         print(pointObjs);
 
@@ -55,8 +55,6 @@ public class Player : MonoBehaviour
                 pointObjs[i].SetActive(false);
             }
         }
-
-
     }
 
     // Update is called once per frame
