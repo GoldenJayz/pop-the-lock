@@ -9,13 +9,13 @@ public class ChildScript : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject curPointHit;
     public bool playerHit = false;
-    private GameObject pointObjs;
+    private List<GameObject> pointObjs;
 
     void Start()
     {
         parent = GameObject.Find("Dial");
         rb = GetComponent<Rigidbody2D>();
-        pointObjs = parent.GetComponent<Player>().pointObjs; // Compress the parent script into a variable later
+        this.pointObjs = parent.GetComponent<Player>().pointObjs; // Compress the parent script into a variable later
     }
 
     void Update()
@@ -41,6 +41,14 @@ public class ChildScript : MonoBehaviour
     {
         // Exclude the last point
         int randomStart = Random.Range(0, pointObjs.Count);
+        print(randomStart);
+
+        while (pointObjs[randomStart] == lastPoint)
+        {
+            randomStart = Random.Range(0, pointObjs.Count); // gets a new number
+        }
+        
+        pointObjs[randomStart].SetActive(true);
         
     }
 
