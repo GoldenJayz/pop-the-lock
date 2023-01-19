@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     // public GameObject[] pointObjs;
     private GameObject child;
 
+    public int playersPoints = 0; // The players total points they have gotten by hitting a point.
+
 
     void Start()
     {
