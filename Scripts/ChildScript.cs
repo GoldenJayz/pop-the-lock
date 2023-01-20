@@ -61,7 +61,6 @@ public class ChildScript : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-
             bool isPointHit = curPointHit == null ? false : curPointHit.GetComponent<Point>().isHit;
 
             if (isPointHit == true) // if both the player is pressing space and the point is being collided with then the player hit the point
