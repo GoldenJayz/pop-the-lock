@@ -76,6 +76,11 @@ public class ChildScript : MonoBehaviour
                 PickRandomPoint(curPointHit); // then pick a random point to spawn in.
                 curPointHit = null;
             }
+
+            else
+            {
+                playerHit = false;
+            }
         }
     }
 }
