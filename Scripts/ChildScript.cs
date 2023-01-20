@@ -13,6 +13,7 @@ public class ChildScript : MonoBehaviour
     private List<GameObject> pointObjs;
     private Player parentScript;
     public Text pointText;
+    private bool isRotating = true; 
 
     void Start()
     {
@@ -25,8 +26,11 @@ public class ChildScript : MonoBehaviour
 
     void Update()
     {
-        this.parentScript.Rotate(isRight);
-        Movement();
+        if (isRotating)
+        {
+            this.parentScript.Rotate(isRight);
+            Movement();
+        }
     }
 
 
@@ -78,9 +82,9 @@ public class ChildScript : MonoBehaviour
                 curPointHit = null;
             }
 
-            else
+            else 
             {
-                playerHit = false;
+                this.isRotating = false;
             }
         }
     }
