@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     // public GameObject[] pointObjs;
     private GameObject child;
 
+    public int playersPoints = 0; // The players total points they have gotten by hitting a point.
+
 
     void Start()
     {
@@ -25,7 +27,7 @@ public class Player : MonoBehaviour
         {
             pointObjs.Add(temp[i]);
         }
-        
+
         // pointObjs = temp.ToList();
         print(pointObjs);
 
@@ -55,8 +57,6 @@ public class Player : MonoBehaviour
                 pointObjs[i].SetActive(false);
             }
         }
-
-
     }
 
     // Update is called once per frame
