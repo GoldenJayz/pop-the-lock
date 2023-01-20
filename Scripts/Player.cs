@@ -14,12 +14,11 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        /*
-        pointLocations.Add(new Vector3(2f, 0f, 0f));
-        pointLocations.Add(new Vector3(-2f, 0f, 0f));
-        pointLocations.Add(new Vector3(0f, 2f, 0f));
-        pointLocations.Add(new Vector3(0f, -2f, 0f));
-        */
+        
+        // pointLocations.Add(new Vector3(2f, 0f, 0f));
+        // pointLocations.Add(new Vector3(-2f, 0f, 0f));
+        // pointLocations.Add(new Vector3(0f, 2f, 0f));
+        // pointLocations.Add(new Vector3(0f, -2f, 0f));
 
         GameObject[] temp = GameObject.FindGameObjectsWithTag("Point");
 
@@ -44,6 +43,7 @@ public class Player : MonoBehaviour
         print(randomStart);
         // print(pointObjs.Count);
         // print(randNum);
+        
         // Make point send it in the opposite direction the lock is traveling (maybe try using negative ?)
         child = GameObject.FindWithTag("Player");
 
@@ -61,11 +61,9 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {}
 
-    }
-
-    public void Rotate(bool hit) // bool isRight
+    public void Rotate(bool hit) // bool hit = isRight
     {
         int multiplier = hit ? -1 : 1;
         transform.Rotate(new Vector3(0, 0, rotationSpeed * multiplier) * Time.deltaTime);

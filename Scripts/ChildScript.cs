@@ -29,7 +29,7 @@ public class ChildScript : MonoBehaviour
         if (isRotating)
         {
             this.parentScript.Rotate(isRight);
-            Movement();
+            HitCoin();
         }
     }
 
@@ -61,7 +61,7 @@ public class ChildScript : MonoBehaviour
         
     }
 
-    void Movement()
+    void HitCoin()
     {
         if (Input.GetKeyDown("space"))
         {
