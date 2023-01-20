@@ -13,8 +13,8 @@ public class ChildScript : MonoBehaviour
     private List<GameObject> pointObjs;
     private Player parentScript;
     public Text pointText;
-    private bool isRotating = true; 
-
+    private bool isRotating = true;
+    public GameObject gameOverBox;
 
     void Start()
     {
@@ -22,8 +22,9 @@ public class ChildScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         this.parentScript = parent.GetComponent<Player>();
         this.pointObjs = this.parentScript.pointObjs;
+        gameOverBox = GameObject.FindWithTag("EndGame");
+        gameOverBox.SetActive(false);
     }
-
 
     void Update()
     {
@@ -32,23 +33,24 @@ public class ChildScript : MonoBehaviour
             this.parentScript.Rotate(isRight);
             HitCoin();
         }
+        else
+        {
+            gameOverBox.SetActive(true);
+        }
     }
 
-
     void OnTriggerEnter2D(Collider2D other)
-    { 
+    {
         curPointHit = other.gameObject;
         curPointHit.GetComponent<Point>().isHit = true;
     }
-
 
     void OnTriggerExit2D(Collider2D other)
     {
         curPointHit.GetComponent<Point>().isHit = false;
     }
 
-
-    void PickRandomPoint(GameObject lastPoint) 
+    void PickRandomPoint(GameObject lastPoint)
     {
         int randomStart = Random.Range(0, pointObjs.Count);
 
@@ -56,10 +58,9 @@ public class ChildScript : MonoBehaviour
         {
             randomStart = Random.Range(0, pointObjs.Count); // gets a new number
         }
-        
+
         pointObjs[randomStart].SetActive(true);
     }
-
 
     void HitCoin()
     {
@@ -79,8 +80,7 @@ public class ChildScript : MonoBehaviour
                 PickRandomPoint(curPointHit); // then pick a random point to spawn in.
                 curPointHit = null;
             }
-
-            else 
+            else
             {
                 this.isRotating = false;
             }
