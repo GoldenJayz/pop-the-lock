@@ -7,5 +7,5 @@ public class Point : MonoBehaviour
     public bool isHit = false;
     public byte collisions = 0;
 
-    // This gets attached to every point that is generated in the game
+    // This script gets attached to every point that is generated in the game
 }

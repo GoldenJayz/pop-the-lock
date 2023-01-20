@@ -15,14 +15,15 @@ public class ChildScript : MonoBehaviour
     public Text pointText;
     private bool isRotating = true; 
 
+
     void Start()
     {
         parent = GameObject.Find("Dial");
         rb = GetComponent<Rigidbody2D>();
         this.parentScript = parent.GetComponent<Player>();
-        print(this.parentScript.playersPoints);
         this.pointObjs = this.parentScript.pointObjs;
     }
+
 
     void Update()
     {
@@ -46,11 +47,10 @@ public class ChildScript : MonoBehaviour
         curPointHit.GetComponent<Point>().isHit = false;
     }
 
+
     void PickRandomPoint(GameObject lastPoint) 
     {
-        // Exclude the last point
         int randomStart = Random.Range(0, pointObjs.Count);
-        // print(randomStart);
 
         while (pointObjs[randomStart] == lastPoint)
         {
@@ -58,8 +58,8 @@ public class ChildScript : MonoBehaviour
         }
         
         pointObjs[randomStart].SetActive(true);
-        
     }
+
 
     void HitCoin()
     {
@@ -76,7 +76,6 @@ public class ChildScript : MonoBehaviour
                 curPointHit.SetActive(false);
                 this.parentScript.playersPoints += 1;
                 pointText.text = this.parentScript.playersPoints.ToString();
-                // Destroy(curPointHit);
                 PickRandomPoint(curPointHit); // then pick a random point to spawn in.
                 curPointHit = null;
             }
