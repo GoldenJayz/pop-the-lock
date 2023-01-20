@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChildScript : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class ChildScript : MonoBehaviour
     public bool playerHit = false;
     private List<GameObject> pointObjs;
     private Player parentScript;
+    public Text pointText;
 
     void Start()
     {
@@ -70,6 +72,7 @@ public class ChildScript : MonoBehaviour
                 isRight = pointCollisions == 1 ? !isRight : isRight;
                 curPointHit.SetActive(false);
                 this.parentScript.playersPoints += 1;
+                pointText.text = this.parentScript.playersPoints.ToString();
                 // Destroy(curPointHit);
                 PickRandomPoint(curPointHit); // then pick a random point to spawn in.
                 curPointHit = null;
