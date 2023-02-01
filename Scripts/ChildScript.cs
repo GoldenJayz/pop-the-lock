@@ -47,6 +47,7 @@ public class ChildScript : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         curPointHit.GetComponent<Point>().isHit = false;
+
     }
 
     void PickRandomPoint(GameObject lastPoint)
