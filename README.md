@@ -8,4 +8,5 @@
     <li>Add algorithm to make the game go faster when more points are hit</li>
     <li>Change colors when harder difficulty (use photoshop) and unity animator</li>
     <li>Make code comply with C# naming conventions</li>
+    <li>Make level 1 end at a certain point</li>
 </ul>
