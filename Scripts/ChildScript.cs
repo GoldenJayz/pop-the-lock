@@ -82,14 +82,14 @@ public class ChildScript : MonoBehaviour
             else // If lose, load the game over scene and make the dial stop rotating
             {
                 this.isRotating = false;
-                SceneManager.LoadScene("SampleScene", LoadSceneMode.Additive); 
+                SceneManager.LoadScene("SampleScene", LoadSceneMode.Single); 
             }
         }
 
         if (this.parentScript.playersPoints == 5)
         {
             this.isRotating = false;
-            SceneManager.LoadScene("level_up", LoadSceneMode.Additive);
+            SceneManager.LoadScene("level_up", LoadSceneMode.Single);
         }
     }
 }
