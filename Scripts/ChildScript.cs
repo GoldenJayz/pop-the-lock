@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ChildScript : MonoBehaviour
 {
@@ -22,8 +23,6 @@ public class ChildScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         this.parentScript = parent.GetComponent<Player>();
         this.pointObjs = this.parentScript.pointObjs;
-        gameOverBox = GameObject.FindWithTag("EndGame");
-        gameOverBox.SetActive(false);
     }
 
     void Update()
@@ -35,7 +34,7 @@ public class ChildScript : MonoBehaviour
         }
         else
         {
-            gameOverBox.SetActive(true);
+          
         }
     }
 
@@ -80,10 +79,17 @@ public class ChildScript : MonoBehaviour
                 PickRandomPoint(curPointHit); // then pick a random point to spawn in.
                 curPointHit = null;
             }
-            else
+            else // If lose, load the game over scene and make the dial stop rotating
             {
                 this.isRotating = false;
+                SceneManager.LoadScene("SampleScene", LoadSceneMode.Additive); 
             }
+        }
+
+        if (this.parentScript.playersPoints == 5)
+        {
+            this.isRotating = false;
+            SceneManager.LoadScene("level_up", LoadSceneMode.Additive);
         }
     }
 }
