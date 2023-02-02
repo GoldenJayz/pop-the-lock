@@ -9,4 +9,5 @@
     <li>Change colors when harder difficulty (use photoshop) and unity animator</li>
     <li>Make code comply with C# naming conventions</li>
     <li>Make level 1 end at a certain point</li>
+    <li>Make the game end when the player goes past the coin</li>
 </ul>
