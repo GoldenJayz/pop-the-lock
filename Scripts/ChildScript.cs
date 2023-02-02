@@ -42,12 +42,17 @@ public class ChildScript : MonoBehaviour
     {
         curPointHit = other.gameObject;
         curPointHit.GetComponent<Point>().isHit = true;
+        curPointHit.GetComponent<Point>().collisions += 1;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         curPointHit.GetComponent<Point>().isHit = false;
 
+        if (curPointHit.GetComponent<Point>().isHit == false && curPointHit.GetComponent<Point>().collisions == 1)
+        {
+            isRotating = false;
+        }
     }
 
     void PickRandomPoint(GameObject lastPoint)
@@ -92,5 +97,6 @@ public class ChildScript : MonoBehaviour
             this.isRotating = false;
             SceneManager.LoadScene("level_up", LoadSceneMode.Single);
         }
+        // if both the point has 1 collision and hit equals true we make it 
     }
 }
