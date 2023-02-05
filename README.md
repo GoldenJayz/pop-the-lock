@@ -1,3 +1,9 @@
+## Owners
+Jaden (GoldenJayz), Blake (Shadowskin5)
+
+## Credits
+Ross (A4R7bluep), Nicole & Isla (Level Design)
+
 ## To-do
 <ul>
     <li>To add shader system</li>
