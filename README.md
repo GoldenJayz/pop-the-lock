@@ -17,3 +17,5 @@ Ross (A4R7bluep), Nicole & Isla (Level Design)
     <li>Make level 1 end at a certain point</li>
     <li>Make the game end when the player goes past the coin</li>
 </ul>
+
+i like cheese
